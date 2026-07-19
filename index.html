@@ -376,22 +376,18 @@
     display: block;
     border-radius: 4px;
   }
-  /* 限制右邊新圖的最大高度，使其依據左邊舊圖的天然展開比例進行自適應縮放，絕不裁切 */
-  .merged-single-image-card img.new-img-fluid {
-    max-height: 100%;
-    width: auto;
-    max-width: 100%;
-    justify-self: center;
-    align-self: center;
-  }
-  @media(max-width: 640px){
-    .merged-single-image-card {
-      grid-template-columns: 1fr;
-    }
-    .merged-single-image-card img.new-img-fluid {
-      width: 100%;
-      height: auto;
-    }
+/* 💡 核心修正：將新舊設施完美融合成單張卡片、單張圖的 CSS 網格邏輯 💡 */
+  .merged-single-image-card {
+    position: relative;
+    background: rgba(36,31,26,0.03);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 8px;
+    margin: 18px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 切分成左右兩欄 */
+    gap: 0; /* 👈 把原本的 8px 改成 0，左右兩張圖就會完全黏在一起不留空隙 */
   }
 
   /* ---------- 車證辦理：左右分欄版面 ---------- */
