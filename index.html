@@ -116,6 +116,7 @@
     font-family:'Noto Sans TC',sans-serif;
   }
   #topnav a.nav-link:hover{background:rgba(244,236,216,0.1); color:var(--limestone);}
+  #topnav a.nav-link.ext{color:#e7ceae;}
   #topnav .sep{width:1px; height:18px; background:rgba(244,236,216,0.2); margin:0 6px;}
   #topnav .menu-toggle{
     display:none; color:var(--limestone); background:none; border:none;
@@ -191,7 +192,7 @@
   #dorm{background:#f0ebd8;}
   #credits{background:#e8e2ef;}
 
-  /* 校園社群 */
+  /* 社群社群 */
   #community{background:var(--paper);}
   .card-row{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
   @media (max-width:820px){.card-row{grid-template-columns:1fr;}}
@@ -438,6 +439,39 @@
   }
   .btn-slate:hover { background: #344250; }
   
+  /* 精緻格線表格 */
+  .checklist-table-container {
+    margin: 15px 0 35px 0;
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  }
+  .checklist-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 0.92rem;
+    text-align: left;
+  }
+  .checklist-table th, .checklist-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .checklist-table th {
+    background: rgba(36,31,26,0.03);
+    font-weight: 700;
+    font-family: 'Noto Serif TC', serif;
+    color: var(--ink);
+    border-bottom: 2px solid var(--line);
+  }
+  .checklist-table tr:last-child td {
+    border-bottom: none;
+  }
+  .checklist-table td.no-wrap-short {
+    white-space: nowrap;
+  }
+
   /* sub-page shared components */
   .subhead{
     font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em;
@@ -481,7 +515,7 @@
     display: block;
   }
 
-  /* 左右分欄排版 */
+  /* 左右分欄排版（通英免修圖放右半邊並限制高度） */
   .split-layout {
     display: flex;
     gap: 32px;
@@ -660,7 +694,7 @@
     <div class="band-inner">
       <div class="eyebrow">重要資訊</div>
       <h2 class="title">系學會搬家公司</h2>
-      <p class="lead">擔心行李太多搬不完？別擔心，學長姐們就是你最可靠的後盾。新生入宿期間，學長姐會在宿舍區待命，協助辦理入宿手續、提供茶水，也帶你認識宿舍。</p>
+      <p class="lead">擔心行李太多搬不完？別擔心，學長姐們就是你最好的搬家工具人。新生入宿期間，學長姐會在宿舍區待命，協助辦理入宿手續、提供茶水，也帶你認識宿舍。</p>
       <div class="move-grid">
         <div class="move-cell"><div class="k">Date</div><div class="v">8/28、8/29、8/30</div></div>
         <div class="move-cell"><div class="k">Location</div><div class="v">A棟 B1 外面帳篷區</div></div>
@@ -685,13 +719,13 @@
         <a class="card" href="https://line.me/ti/g/xuszWT9Ygf" target="_blank" rel="noopener">
           <div class="icon">💬</div>
           <h3>115 LINE 新生群</h3>
-          <p>新生請務必記得加入新生群，點擊下方連結可直接加入，或掃描內部二維碼。</p>
+          <p>新生請務必記得加入新生群，未來事項將會在這裡公布。</p>
           <div class="go">加入群組 →</div>
         </a>
         <a class="card" href="https://www.facebook.com/share/g/1BpFATP3kT/" target="_blank" rel="noopener">
           <div class="icon">👥</div>
           <h3>中正大學全校版 FB</h3>
-          <p>申請時請將個人檔案學歷改為國立中正大學，並詳實回答審核問題。</p>
+          <p>申請時請將個人檔案學歷改為國立中正大學，並詳實回答審核問題（入學年＋科系）。如有問題可私訊管理員 林荃甫。</p>
           <div class="go">前往社團 →</div>
         </a>
       </div>
@@ -709,13 +743,13 @@
         <div class="tag">FIELD TRIP</div>
         <div>
           <h3>地球與環境科學概論實習</h3>
-          <p>大一很有特色的一門課，上下學期各有一次兩天一夜的野外考察。跟著老師到不同的地質環境，拿著地質錘、傾斜儀觀察岩石、地層。辨認岩石、觀察構造、挖化石，是印象深刻的共同回憶。</p>
+          <p>大一很有特色的一門課，上下學期各有一次兩天一夜的野外考察。跟著老師到不同的地質環境，拿著地質錘、傾斜儀觀察岩石、地層——教授熟練地撥開圍欄旁的草叢，走著根本「不是路」的路，你会發現自己完全跟不上老師的腳步。辨認岩石、觀察構造、挖化石，大家一邊喊累一邊挖得比誰都拼命，是印象深刻的共同回憶。</p>
           
           <div class="course-split-carousel">
             <div class="course-carousel-media" id="carousel-field">
               <div class="carousel-track-container">
                 <div class="carousel-track">
-                  <div class="carousel-slide"><img src="ccuees-welcome-packet/出野外1.jpg" alt="出野外1"></div>
+                  <div class="carousel-slide"><img src="ccuees-welcome-packet/出野外.jpg" alt="出野外1"></div>
                   <div class="carousel-slide"><img src="ccuees-welcome-packet/出野外2.jpg" alt="出野外2"></div>
                 </div>
               </div>
@@ -727,18 +761,18 @@
               </div>
             </div>
             <div class="course-carousel-desc">
-              地球與環境科學系最核心的訓練，便是親身置身於野外露頭。大一的野外實習讓同學實際觸摸岩層、觀測地質構造、判讀地史演變，建立精確空間思維。
+              地球與環境科學系最核心的訓練，便是親身置身於野外露頭。大一的野外實習讓同學實際觸摸岩層、觀測地質構造、判讀地史演變，建立紮實的三維地質空間思維，一邊累積同儕間最深厚難忘的情誼。
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 地震教育 4張大圖輪播 -->
+      <!-- 地震教育 4張大圖輪播系統 (對應精確正確副檔名 .jpg) -->
       <div class="course">
         <div class="tag">OUTREACH</div>
         <div>
           <h3>地震教育</h3>
-          <p>教我們說明地震教育館的各個解說板，上完課後就有機會擔任解說員，向來參觀的民眾介紹地震成因、原理及各項互動設施，是課堂之外特別的學習經驗。</p>
+          <p>教我們說明地震教育館的各個解說板，上完課後就有機會擔任解說員，向來參觀的民眾介紹地震成因、原理及各項互動設施。來的不只有學生，也常有小朋友、阿公阿嬤——每次解說都是一次新的挑戰，也是課堂之外非常特別的學習經驗。</p>
           
           <div class="course-split-carousel">
             <div class="course-carousel-media" id="carousel-seismic">
@@ -760,7 +794,7 @@
               </div>
             </div>
             <div class="course-carousel-desc">
-              學術研究與大眾科普的橋樑。在老師的引導下，同學將生硬的地震原理、防災知識轉化為生動演示，走進人群推廣科普。
+              學術研究與大眾科普的橋樑。在老師的引導下，同學將生硬的地震原理、防災知識轉化為一般大眾也能輕鬆理解的生動演示，走進人群推廣科普，是全台極具地環特色的科學溝通實踐課程。
             </div>
           </div>
         </div>
@@ -772,7 +806,9 @@
     <div class="band-inner">
       <div class="eyebrow">地環生活</div>
       <h2 class="title">繁忙之餘，我們互相照應</h2>
-      <p>大一必修課程繁雜，普物、普化、微積分接踵而來，但系上學長姊握有許多資源，不管是考古題還是讀書小撇步，只要你願意來找我們，我們都很願意分享。若有不懂的地方也非常推薦去找助教與教授，不用擔心自己的問題會不會很怪。</p>
+      <p>大一必修課程繁雜，普物、普化、微積分接踵而來，但系上學長姊握有許多資源，不管是考古題還是讀書小撇步，只要你願意來找我們，我們都很願意分享。若有不懂的地方也非常推薦去找助教與教授，他們對學生都很熱情，不用擔心自己的問題會不會很怪。</p>
+      <br>
+      <p>繁雜之餘系上也有很多活動可以參與，像是系烤、系桌遊與系K，都能與同儕有良好的互動体验；也可以評估自己的時間參加系隊與社團，拓展交友範圍，順帶體驗感興趣的領域。</p>
     </div>
   </section>
 
@@ -784,7 +820,7 @@
         <div class="act">
           <div>
             <h3>🔥 系烤</h3>
-            <p>大家一起比拚廚藝、一同歡唱，享受熱血的深夜時間。</p>
+            <p>擔心與系上同學沒有交集嗎？那就讓我們同一時間一起烤肉吧！大家一起比拚廚藝、一同歡唱，享受熱血的深夜時間。</p>
           </div>
           <div style="width: 100%; overflow: hidden; border-radius: 4px; margin-top: 10px; aspect-ratio: 16/10;">
             <img style="width:100%; height:100%; object-fit:cover; display:block;" src="ccuees-welcome-packet/系烤.jpg" alt="系烤活動">
@@ -793,7 +829,7 @@
         <div class="act">
           <div>
             <h3>🎄 聖誕餐會</h3>
-            <p>星期五中午在系館外的草坪舉辦餐會與交換禮物，還有教授特別獎喔。</p>
+            <p>星期五中午在系館外的草坪舉辦餐會與交換禮物，除了交換禮物外還能參與教授提供的特別獎，說不定你就是那幸運得主。</p>
           </div>
           <div style="width: 100%; overflow: hidden; border-radius: 4px; margin-top: 10px; aspect-ratio: 16/10;">
             <img style="width:100%; height:100%; object-fit:cover; display:block;" src="ccuees-welcome-packet/聖誕餐會.jpg" alt="聖誕餐會活動">
@@ -802,7 +838,7 @@
         <div class="act">
           <div>
             <h3>🎤 系K</h3>
-            <p>和同學比拚歌技、盡情大唱大跳，沒有課業、沒有煩惱。</p>
+            <p>擁有好歌喉卻無處施展嗎？和同學比拚歌技、爭取教授與觀眾的熱情，自由歡唱時間盡情大唱大跳，沒有課業、沒有煩惱。</p>
           </div>
           <div style="width: 100%; overflow: hidden; border-radius: 4px; margin-top: 10px; aspect-ratio: 16/10;">
             <img style="width:100%; height:100%; object-fit:cover; display:block;" src="ccuees-welcome-packet/系K.jpg" alt="系K活動">
@@ -823,19 +859,58 @@
           <img src="ccuees-welcome-packet/中正大學 校區平面配置圖.jpg" alt="中正大學校區平面配置圖">
         </div>
         <div class="grid-img-card">
-          <img src="ccuees-welcome-packet/理學院平面圖.jpg" alt="理學院平面圖">
+          <img src="ccuees-welcome-packet/裡學院平面圖.jpg" alt="理學院平面圖">
         </div>
       </div>
 
       <div class="subhead">如何抵達</div>
+      <a class="doc-btn btn-clay" href="https://ccu-intl-guide.onrender.com/" target="_blank" rel="noopener">
+        CCU Campus Guide ↗
+      </a>
+
       <div class="info-grid">
         <div class="info-card">
           <h4>🚗 開車</h4>
-          <p>民雄交流道下，往民雄方向沿民雄外環道（民新路）行駛，過民雄陸橋後左轉台一線，右轉大學路即抵達。</p>
+          <p><strong>國道一號：</strong>民雄交流道下，往民雄方向沿民雄外環道（民新路）行駛約 1.9 公里，過民雄陸橋後左轉台一線，前行約 600 公尺，右轉大學路三段，再行駛約 4.2 公里即抵達。</p>
+          <p><strong>國道三號（南下）：</strong>梅山交流道下 → 縣道 162（經大林鎮公所）→ 左轉民生路 → 左轉大民北路 → 左轉縣道 106（大學路一段），約五分鐘抵達。</p>
         </div>
         <div class="info-card">
           <h4>🚂 火車</h4>
-          <p><strong>嘉義站／民雄站：</strong>可轉乘嘉義縣公車 7309、台灣好行 106，於活動中心前候車亭下車。</p>
+          <p><strong>嘉義站：</strong>轉乘嘉義縣公車 7309、台灣好行 106 故宮南院線，車程約 38 分鐘，於活動中心前候車亭下車。</p>
+          <p><strong>民雄站：</strong>轉乘公車 7306、7309、台灣好行 106，車程約 9 分鐘，於活動中心前候車亭下車。</p>
+        </div>
+        <div class="info-card">
+          <h4>🚅 高鐵</h4>
+          <p>搭至嘉義站，轉乘台灣好行 106 故宮南院線，校園內停靠一站，於活動中心前候車亭下車。</p>
+          <p>亦可搭計程車，路程約 30～40 分鐘（費用較高，較不推薦）。</p>
+        </div>
+        <div class="info-card">
+          <h4>🚌 客運</h4>
+          <p>統聯 7005 號：經台北轉運站、桃園長庚轉運站、西螺、大林，可抵達中正。</p>
+        </div>
+      </div>
+
+      <div class="subhead">校內外的代步工具</div>
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>🚲 腳踏車</h4>
+          <p>校園腹地廣大，腳踏車是上課與生活移動的好夥伴。各學院、活動中心與宿舍周邊皆設有停車格，停車務目記得上鎖。</p>
+          <p><strong>單車販售：</strong>新生入宿期間 EB1 有廠商現場販售。</p>
+          <p><strong>單車認領：</strong>每年約 11 月學校會發信提醒新生至第三側門報廢物堆置場免費領取學長姐留下的舊車（維修費需自行負擔）。</p>
+          <p><strong>車輛維修：</strong>每週一、四 12:00–14:00 活動中心門口有維修站；活中及宿舍區皆有快速充氣站。</p>
+          <p>校園周邊也有 YouBike 可租借（前 30 分鐘免費／補助 10元），可於活中或校門口租車。</p>
+        </div>
+        <div class="info-card">
+          <h4>⚡ 微型電動二輪車</h4>
+          <p>校內坡多，尤其宿舍區到活動中心與大門的斜坡陡峭，電動腳踏車會是省力的選擇，但價位較高、性能不及機車，可依個人需求選購。新生入宿期間 EB1 有廠商現場販售。</p>
+        </div>
+        <div class="info-card">
+          <h4>🛵 機車</h4>
+          <p>校園內禁止行駛機車，但要前往生活機能較佳的民雄市區（買晚餐、全聯採買、外出）時會方便許多，請務必注意行車安全。</p>
+        </div>
+        <div class="info-card">
+          <h4>🚗 汽車</h4>
+          <p>宿舍 E 棟地下室有室內停車場，校園各處也有停車場，但請勿開進教學區 or 隨意停放。</p>
         </div>
       </div>
 
@@ -843,8 +918,12 @@
       <div class="license-layout">
         <div class="license-text">
           <div class="qa" style="border-top:none;">
-            <div class="q">車證申請流程</div>
-            <div class="a">攜帶駕照、行照影本或照片等資料，至活動中心 2F 車輛管理中心辦理。實際辦理細則請參考附圖公告說明。</div>
+            <div class="q">微型電動二輪車</div>
+            <div class="a">至車輛管理中心（活動中心 2F）辦理，需攜帶身分證件（身分證／學生證）、辦證費用（100 元／年）、車身照片（正面、側面、後面）、行車型式安全審驗合格證明書或行照，入校須配戴安全帽。</div>
+          </div>
+          <div class="qa">
+            <div class="q">機車、汽車</div>
+            <div class="a">攜帶駕照及行照影本申請停車證；汽車停車證需本人親自至車管中心繳費領取，並將車證置於明顯位置，實際費用與流程以車管中心公告為準。</div>
           </div>
         </div>
         <div class="license-media">
@@ -859,15 +938,34 @@
     <div class="band-inner">
       <div class="eyebrow">校園生活指南</div>
       <h2 class="title">生活機能</h2>
-      <p class="lead">日常生活需要的一切校園裡幾乎都有。</p>
+      <p class="lead">從書局、郵局到運動場館，日常生活需要的一切校園裡幾乎都有。</p>
+
       <div class="info-grid">
         <div class="info-card">
           <h4>📖 書局</h4>
-          <p>活動中心的麗文書局，提供各項文具用品與教科書訂購。</p>
+          <p>活動中心的麗文書局，二樓以文具為主、三樓以圖書為主。大部分教科書都能買到，開學也有班級團體訂書優惠。</p>
         </div>
         <div class="info-card">
-          <h4>🏣 郵局</h4>
-          <p>活動中心設有郵局，提供郵寄與儲匯業務。</p>
+          <h4>🏣 郵局／🏦 銀行</h4>
+          <p>活動中心設有郵局，提供郵寄、儲匯業務與提款機，是宿舍區上學的必經之路。行政大樓則有台灣銀行國庫收付處，提供國庫收付作業與 ATM 提款。</p>
+        </div>
+        <div class="info-card">
+          <h4>🧹 生活用品／雜貨</h4>
+          <p>研究生宿舍區的員生超市離大學部宿舍不遠，生活用品、存糧、生鮮食品應有盡有，雖不如大賣場便宜，打折時比便利商店划算許多。</p>
+        </div>
+        <div class="info-card">
+          <h4>👔 洗衣</h4>
+          <p>男生洗衣間：A 棟 B1、DE 棟中間 1 樓。女生洗衣間：C 棟 B1、DE 棟中間 1 樓。均有洗衣機及烘衣機，洗衣一次 20 元約 30～40 分鐘，烘衣每 10 元 30 分鐘（最多可投 30 元／90 分鐘）。</p>
+        </div>
+        <div class="info-card">
+          <h4>🏥 醫療</h4>
+          <p><strong>校內：</strong>活動中心健康中心有醫生駐診，攜帶學生證及健保卡現場掛號即可免費看診。</p>
+          <p><strong>校外：</strong>中正與逾六十所醫療機構簽約，憑學生證享優惠，可搜尋「中正大學特約醫療院所」查詢。</p>
+        </div>
+        <div class="info-card">
+          <h4>🏋️ 體育設施</h4>
+          <p><strong>室內：</strong>綜合球場、人工跑道、壁球室、保齡球館、桌球教室、體適能中心、游泳池、韻律教室、武術教室、人工攀岩壁、羽球場等。</p>
+          <p><strong>室外：</strong>高爾夫球練習場、網球場、棒球場、籃球場、排球場、壘球場、田徑場、足球場、射箭場。宿舍區 EB1 另有撞球室。多數設備免費租借，鼓勵大家多加運用。</p>
         </div>
       </div>
     </div>
