@@ -357,41 +357,38 @@
     display: block;
   }
 
-  /* 💡 修正：絕不裁切舊圖，讓新圖縮放到與舊圖等高的專屬排版 💡 */
-  .grid-images-equal-height {
-    display: flex;
-    gap: 16px;
-    margin: 18px 0;
-    align-items: flex-start; /* 頂部對齊，不強制強伸展 */
-  }
-  .grid-images-equal-height .grid-img-card {
-    flex: 1;
+  /* 💡 核心修正：將新舊設施完美融合成單張卡片、單張圖的 CSS 網格邏輯 💡 */
+  .merged-single-image-card {
+    position: relative;
     background: rgba(36,31,26,0.03);
     border: 1px solid var(--line);
     border-radius: 6px;
     padding: 8px;
+    margin: 18px 0;
     box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 切分成左右兩欄 */
+    gap: 8px;
   }
-  .grid-images-equal-height .grid-img-card img {
+  .merged-single-image-card img {
     width: 100%;
-    height: auto; /* 舊圖完全依原始比例展開 */
-    border-radius: 4px;
+    height: auto;
     display: block;
+    border-radius: 4px;
   }
-  /* 讓右邊新圖的外層自適應對齊，並限制內部圖片最大高度與左邊舊圖等高且不被裁切 */
-  .grid-images-equal-height .grid-img-card.new-facility img {
-    max-height: 100%; /* 依據 Flex 佈局限制其最大高度 */
+  /* 限制右邊新圖的最大高度，使其依據左邊舊圖的天然展開比例進行自適應縮放，絕不裁切 */
+  .merged-single-image-card img.new-img-fluid {
+    max-height: 100%;
     width: auto;
     max-width: 100%;
+    justify-self: center;
+    align-self: center;
   }
   @media(max-width: 640px){
-    .grid-images-equal-height {
-      flex-direction: column;
+    .merged-single-image-card {
+      grid-template-columns: 1fr;
     }
-    .grid-images-equal-height .grid-img-card.new-facility img {
+    .merged-single-image-card img.new-img-fluid {
       width: 100%;
       height: auto;
     }
@@ -846,7 +843,7 @@
       <h2 class="title">繁忙之餘，我們互相照應</h2>
       <p>大一必修課程繁雜，普物、普化、微積分接踵而來，但系上學長姊握有許多資源，不管是考古題還是讀書小撇步，只要你願意來找我們，我們都很願意分享。若有不懂的地方也非常推薦去找助教與教授，他們對學生都很熱情，不用擔心自己的問題會不會很怪。</p>
       <br>
-      <p>繁雜之餘系上也有很多活動可以參與，像是系烤、系桌遊與系K，都能與同儕有良好的互動體驗；也可以評估自己的時間參加系隊與社團，拓展交友範圍，順帶體驗感興趣的領域。</p>
+      <p>繁雜之餘系上也有活動可以參與，像是系烤、系桌遊與系K，都能與同儕有良好的互動體驗；也可以評估自己的時間參加系隊與社團，拓展交友範圍，順帶體驗感興趣的領域。</p>
     </div>
   </section>
 
@@ -989,7 +986,7 @@
         </div>
         <div class="info-card">
           <h4>🧹 生活用品／雜貨</h4>
-          <p>研究生宿舍區的員生超市離大學部宿舍不遠，生活用品、存糧、生鮮食品應有簡有，雖不如大賣場便宜，打折時比便利商店划算許多。</p>
+          <p>研究生宿舍區的員生超市離大學部宿舍不遠，生活用品、存糧、生鮮食品應有盡有，雖不如大賣場便宜，打折時比便利商店划算許多。</p>
         </div>
         <div class="info-card">
           <h4>👔 洗衣</h4>
@@ -1003,7 +1000,7 @@
         <div class="info-card">
           <h4>🏋️ 體育設施</h4>
           <p><strong>室內：</strong>綜合球場、人工跑道、壁球室、保齡球館、桌球教室、體適能中心、游泳池、韻律教室、武術教室、人工攀岩壁、羽球場等。</p>
-          <p><strong>室外：</strong>高爾夫球練習場、網球場、棒球場、籃球場、排球場、壘球場、田徑場、足球場、射箭場。宿舍區 EB1 另有撞球室. 多數設備免費租借，鼓勵大家多加運用。</p>
+          <p><strong>室外：</strong>高爾夫球練習場、網球場、棒球場、籃球場、排球場、壘球場、田徑場、足球場、射箭場. 宿舍區 EB1 另有撞球室. 多數設備免費租借，鼓勵大家多加運用。</p>
         </div>
       </div>
 
@@ -1281,14 +1278,10 @@
         <div class="a">
           每寢皆有平面床位四床（90×186cm）、乾溼分離式衛浴、24hr 熱水、冷氣、L 型書桌暨電腦桌、衣櫃、陽台，各寢格局大同小異。
           
-          <!-- 💡 修正：左舊右新並排。舊圖絕不裁切，新圖（帶有 .new-facility 標記）自動縮放到與舊圖等高對齊 💡 -->
-          <div class="grid-images-equal-height" id="facilityContainer">
-            <div class="grid-img-card" id="oldFacilityCard">
-              <img src="ccuees-welcome-packet/房間設施大小(舊).png" alt="房間設施大小(舊)" id="oldImg">
-            </div>
-            <div class="grid-img-card new-facility" id="newFacilityCard">
-              <img src="ccuees-welcome-packet/房間設施大小(新).png" alt="房間設施大小(新)" id="newImg">
-            </div>
+          <!-- 💡 修正：直接在同一個外框（merged-single-image-card）中合併成一張大圖卡 💡 -->
+          <div class="merged-single-image-card" id="mergedFacilityContainer">
+            <img src="ccuees-welcome-packet/房間設施大小(舊).png" alt="房間設施大小(舊)" id="oldImg">
+            <img src="ccuees-welcome-packet/房間設施大小(新).png" alt="房間設施大小(新)" class="new-img-fluid" id="newImg">
           </div>
         </div>
       </div>
@@ -1508,17 +1501,14 @@
     initializeCourseCarousel('carousel-field');
     initializeCourseCarousel('carousel-seismic');
     
-    /* 💡 精準動態縮放：等舊圖載入後，將新圖外框與高度無損調至跟舊圖完完全全一樣高 💡 */
+    /* 💡 動態高度同步：讓右邊的新圖最大高度完美卡在左邊舊圖的高度線，融合為一張大圖卡 💡 */
     const oldImg = document.getElementById('oldImg');
     const newImg = document.getElementById('newImg');
-    const newCard = document.getElementById('newFacilityCard');
     
     function matchHeight() {
       if (window.innerWidth > 640 && oldImg.clientHeight > 0) {
-        newCard.style.height = oldImg.clientHeight + 'px';
-        newImg.style.height = '100%';
+        newImg.style.height = oldImg.clientHeight + 'px';
       } else {
-        newCard.style.height = 'auto';
         newImg.style.height = 'auto';
       }
     }
